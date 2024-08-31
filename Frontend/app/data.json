@@ -1,0 +1,92 @@
+[
+    {
+        "id": "NBC1243",
+        "name": "R V",
+        "phone": "8865446764",
+        "device": "Apple",
+        "status": "in progress",
+        "date_logged": "2024-08-20",
+        "issue": {
+            "title": "Screen has white spots",
+            "description": "Screen has white issues on boot",
+            "images": [
+                "image.png"
+            ]
+        }
+    },
+    {
+        "id": "NBC1244",
+        "name": "S T",
+        "phone": "9876543210",
+        "device": "Samsung",
+        "status": "pending",
+        "date_logged": "2024-08-21",
+        "issue": {
+            "title": "Battery drains quickly",
+            "description": "Battery life is less than 4 hours",
+            "images": [
+                "battery_issue.jpg"
+            ]
+        }
+    },
+    {
+        "id": "NBC1245",
+        "name": "A M",
+        "phone": "9123456789",
+        "device": "Google",
+        "status": "resolved",
+        "date_logged": "2024-08-22",
+        "issue": {
+            "title": "Overheating",
+            "description": "Device gets very hot during use",
+            "images": [
+                "overheat.jpg"
+            ]
+        }
+    },
+    {
+        "id": "NBC1246",
+        "name": "P K",
+        "phone": "9988776655",
+        "device": "OnePlus",
+        "status": "in progress",
+        "date_logged": "2024-08-23",
+        "issue": {
+            "title": "Cracked screen",
+            "description": "Screen cracked after a fall",
+            "images": [
+                "crack.jpg"
+            ]
+        }
+    },
+    {
+        "id": "NBC1247",
+        "name": "D L",
+        "phone": "7766554433",
+        "device": "Huawei",
+        "status": "pending",
+        "date_logged": "2024-08-24",
+        "issue": {
+            "title": "Camera not focusing",
+            "description": "Rear camera unable to focus properly",
+            "images": [
+                "camera_issue.png"
+            ]
+        }
+    },
+    {
+        "id": "NBC1248",
+        "name": "K N",
+        "phone": "8554433221",
+        "device": "Xiaomi",
+        "status": "resolved",
+        "date_logged": "2024-08-25",
+        "issue": {
+            "title": "WiFi connectivity issues",
+            "description": "Device frequently disconnects from WiFi",
+            "images": [
+                "wifi_issue.png"
+            ]
+        }
+    }
+]
