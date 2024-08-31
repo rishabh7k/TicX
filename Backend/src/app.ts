@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import prisma from "./database/service.js";
 import usersRouter from "./useCases/users/router.js";
+import ticketsRouter from "./useCases/tickets/router.js";
 import { middleware } from "./middleware/service.js";
 
 const app: Express = express();
@@ -14,6 +15,7 @@ app.get("/", async (req: Request, res: Response) => {
 });
 
 app.use("/users", usersRouter);
+app.use("/tickets", ticketsRouter);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

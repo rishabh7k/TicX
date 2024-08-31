@@ -23,3 +23,16 @@ model tblusers {
   user_id   String @id
   password  String
 }
+
+model tbl_tickets {
+  ticket_id         String      @id
+  client_name       String
+  phone             String   @db.VarChar(50)
+  address           String   @db.Text
+  device            String   @db.VarChar(100)
+  ticket_status     String   @db.VarChar(50)
+  issue_title       String
+  issue_description String   @db.Text
+  bill_id           String?  @db.VarChar(255) // Nullable field
+  created_at        DateTime @default(now()) @db.Timestamp(0)
+}
