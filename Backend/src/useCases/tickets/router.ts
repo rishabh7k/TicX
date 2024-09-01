@@ -31,7 +31,7 @@ ticketsRouter.post("/add", async (req: Request, res: Response) => {
 
 ticketsRouter.post("/fetch", async (req: Request, res: Response) => {
   const page = parseInt(req.query.page as string) || 1;
-  const pageSize = 10;
+  const pageSize = 6;
 
   try {
     const tickets = await prisma.tbl_tickets.findMany({
