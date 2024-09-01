@@ -1,7 +1,13 @@
-export interface TicketPeek {
+export enum TicketStatusEnum {
+  IN_P = "In Progress",
+  PEN = "Pending",
+  RES = "Resolved",
+}
+
+export interface TicketModel {
   ticket_id: string;
   device: string;
-  ticket_status: string;
+  ticket_status: TicketStatusEnum;
   issue_title: string;
 }
 export interface TicketListModel {
@@ -9,5 +15,5 @@ export interface TicketListModel {
   pageSize: number;
   totalPages: number;
   totalTickets: number;
-  data: TicketPeek[];
+  data: TicketModel[];
 }

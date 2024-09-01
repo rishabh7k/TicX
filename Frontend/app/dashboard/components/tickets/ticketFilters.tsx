@@ -1,6 +1,6 @@
 import React from "react";
 
-const TicketNav = () => {
+const TicketFilters = () => {
   return (
     <div className="h-20 p-6 pl-9">
       <div className="text-2xl flex">
@@ -25,4 +25,4 @@ const TicketNav = () => {
   );
 };
 
-export default TicketNav;
+export default TicketFilters;
