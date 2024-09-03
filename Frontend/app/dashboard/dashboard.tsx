@@ -41,7 +41,10 @@ const Dashboard = () => {
     <div className="flex">
       <SideBar />
       <div className="w-full bg-slate-100">
-        <TicketFilters />
+        <TicketFilters
+          totalPages={tickets.totalPages}
+          totalIssues={tickets.totalTickets}
+        />
         <div className="h-svh ml-9 bg-white flex">
           <TicketList tickets={tickets} onTicketClick={setSelectedTicket} />
           {selectedTicket && <TicketDetails ticket={selectedTicket} />}

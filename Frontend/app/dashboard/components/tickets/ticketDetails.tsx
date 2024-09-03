@@ -8,8 +8,8 @@ interface TicketDetailsProps {
 
 const TicketDetails: React.FC<TicketDetailsProps> = ({ ticket }) => {
   const isDisabled = () => {
-    if (typeof ticket.bill_id === "string") return true;
-    else return false;
+    if (ticket.bill_id === "string") return false;
+    else return true;
   };
   return (
     <div className="border border-x-0 w-full">
@@ -22,10 +22,13 @@ const TicketDetails: React.FC<TicketDetailsProps> = ({ ticket }) => {
         </div>
       </div>
       <div className="p-3 space-y-2">
-        <div className="text-slate-800 text-2xl mt-2 border-b">
-          Title: {ticket.issue_title}
+        <div className="flex border-b">
+          <div className="text-slate-800 text-2xl mt-2 ">
+            Title: {ticket.issue_title}
+          </div>
+          <div className="font-mono">{ticket.device}</div>
         </div>
-        <div className="flex space-x-3 w-full border">
+        <div className="flex space-x-3 w-full">
           <div className="mr-auto">Client: {ticket.client_name}</div>
           <div className="font-mono border border-red-500">
             call: {ticket.phone}
