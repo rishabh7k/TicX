@@ -4,14 +4,16 @@ import { TicketListModel, TicketModel } from "@/app/backend/models";
 import { statusColor } from "./ticketStatus";
 interface TicketListProp {
   tickets: TicketListModel;
+  onTicketClick: (ticket: TicketModel) => void;
 }
 
-const TicketList: React.FC<TicketListProp> = ({ tickets }) => {
+const TicketList: React.FC<TicketListProp> = ({ tickets, onTicketClick }) => {
   return (
     <div className="border w-5/12">
       <div className="overflow-y-auto h">
         {tickets.data.map((ticket: TicketModel) => (
           <div
+            onClick={() => onTicketClick(ticket)}
             className="border-b flex p-4 hover:bg-slate-100"
             key={ticket.ticket_id}
           >

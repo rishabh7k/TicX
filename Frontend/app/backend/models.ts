@@ -6,8 +6,13 @@ export enum TicketStatusEnum {
 
 export interface TicketModel {
   ticket_id: string;
+  client_name: string;
+  phone: string;
+  address: string;
   device: string;
   ticket_status: TicketStatusEnum;
+  issue_description: string;
+  bill_id: string | null;
   issue_title: string;
 }
 export interface TicketListModel {
