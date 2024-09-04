@@ -1,13 +1,20 @@
 import Users from "../useCases/users/models.js";
 import jwt from "jsonwebtoken";
+import prisma from "../database/service.js";
 
 const secret: string | undefined = process.env.JWT_SECRET;
 
 export default class AuthenticationService {
-  static authorize(inputUser: Users, validUser: Users) {
+  static async authorize(inputUser: Users) {
+    const validUser = await prisma.tblusers.findUnique({
+      where: {
+        user_id: inputUser.user_id,
+      },
+    });
+
     if (!secret) return { error: "secret not given" };
 
-    if (!inputUser) {
+    if (!validUser) {
       return { error: "user doesnt exist" };
     }
     const isPasswordValid = () => {

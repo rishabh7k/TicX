@@ -2,6 +2,7 @@ import express, { Express, Request, Response } from "express";
 import prisma from "./database/service.js";
 import usersRouter from "./useCases/users/router.js";
 import ticketsRouter from "./useCases/tickets/router.js";
+import authenticateRouter from "./authentication/router.js";
 import { middleware } from "./middleware/service.js";
 import cors from "cors";
 
@@ -21,6 +22,7 @@ app.get("/", async (req: Request, res: Response) => {
 
 app.use("/users", usersRouter);
 app.use("/tickets", ticketsRouter);
+app.use("/authenticate", authenticateRouter);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);

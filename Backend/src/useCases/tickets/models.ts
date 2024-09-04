@@ -9,6 +9,12 @@ export enum TicketStatus {
   RES = "Resolved",
 }
 
+export interface Filters {
+  status: string[];
+  devices: string[];
+  dateRange: number;
+}
+
 export interface Ticket {
   ticket_id: string | null;
   client_name: string;

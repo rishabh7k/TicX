@@ -18,9 +18,7 @@ const TicketFilters: React.FC<FilterProps> = ({ totalIssues, totalPages }) => {
         <div className="flex ml-auto text-xs text-slate-500 ">
           <div className="ml-auto flex space-x-3 mr-16">
             <button className="px-3">&lt;</button>
-            <p className="flex items-center justify-center">
-              1 - {totalPages}{" "}
-            </p>
+            <p className="flex items-center justify-center">1 - {totalPages}</p>
             <button className="px-3">&gt;</button>
           </div>
           <div className="ml-auto flex text-xs space-x-3 mr-16 border bg-white px-4">

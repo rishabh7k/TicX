@@ -6,7 +6,7 @@ export const middleware = async (
   res: Response,
   next: NextFunction
 ) => {
-  const exemptRoutes = ["/users/authenticate"];
+  const exemptRoutes = ["/authenticate"];
   if (exemptRoutes.includes(req.path)) {
     return next();
   }
