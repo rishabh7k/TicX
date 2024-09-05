@@ -21,11 +21,18 @@ export default class TicketsSerice {
 
   static async fetch(page: number, filters: Filters) {
     const pageSize = 7;
+    const getPastDate = (n: number): Date => {
+      const today = new Date();
+      const pastDate = new Date(today);
+      pastDate.setMonth(today.getMonth() - n);
+      return pastDate;
+    };
+    const pastDate = filters.dateRange ? getPastDate(filters.dateRange) : null;
     const tickets = await prisma.tbl_tickets.findMany({
-      //   where: {
-      //     ticket_status: { in: filters.status },
-      //     device: { in: filters.devices },
-      //   },
+      where: {
+        ticket_status: { in: filters.status },
+        device: { in: filters.devices },
+      },
       skip: (page - 1) * pageSize,
       take: pageSize,
       orderBy: {

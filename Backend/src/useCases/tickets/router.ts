@@ -19,7 +19,8 @@ ticketsRouter.post("/add", async (req: Request, res: Response) => {
 
 ticketsRouter.post("/fetch", async (req: Request, res: Response) => {
   const page: number = parseInt(req.query.page as string) || 1;
-  const filters: Filters = req.body;
+  const payload: Filters = req.body;
+  const filters = new Filters(payload);
 
   try {
     const tickets = await TicketsSerice.fetch(page, filters);
