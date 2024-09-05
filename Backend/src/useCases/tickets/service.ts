@@ -31,15 +31,22 @@ export default class TicketsSerice {
     const tickets = await prisma.tbl_tickets.findMany({
       where: {
         ticket_status: { in: filters.status },
-        device: { in: filters.devices },
+        ...(filters.devices.length > 0 && {
+          device: { in: filters.devices },
+        }),
+        ...(pastDate && {
+          created_at: {
+            gte: pastDate,
+          },
+        }),
       },
       skip: (page - 1) * pageSize,
       take: pageSize,
       orderBy: {
-        created_at: "desc",
+        created_at: "asc",
       },
     });
-    const totalTickets = await prisma.tbl_tickets.count();
+    const totalTickets = tickets.length;
     const response = {
       data: tickets,
       page: page,
