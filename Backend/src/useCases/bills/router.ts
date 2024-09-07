@@ -1,10 +1,14 @@
 import express, { Request, Response } from "express";
+import BillsService from "./service.js";
+import { BillDto } from "./models.js";
 
 const billsRouter = express.Router();
 
-billsRouter.post("/add/:ticket_id", async (req: Request, res: Response) => {
+billsRouter.post("/add", async (req: Request, res: Response) => {
   try {
-    const { ticket_id } = req.params;
+    const bill: BillDto = req.body;
+    await BillsService.addBill(bill);
+    res.status(200).json({ success: "Bill Added successfully" });
   } catch (e) {
     res.status(500).json({ error: `Internal Server Error: ${e}` });
   }

@@ -1,12 +1,17 @@
 import prisma from "../../database/service.js";
-import { v4 as uuidv4 } from "uuid";
+import { BillDto, Bill } from "./models.js";
+
 export default class BillsService {
-  static async addBill(ticket_id: string) {
-    const bill_id = uuidv4().slice(0, 8);
-    const _ = await prisma.tbl_tickets.update({
-      where: { ticket_id: ticket_id },
-      data: { bill_id: bill_id },
-    });
+  static async addBill(bill: BillDto): Promise<void> {
+    const preparedBill: Bill = new Bill(bill);
+    await prisma.$executeRaw`
+    CALL insert_bill(
+      ${preparedBill.bill_id}::VARCHAR(50),
+      ${preparedBill.ticket_id}::VARCHAR(50),
+      ${preparedBill.imei}::VARCHAR(50),
+      ${preparedBill.bill_components}::JSONB
+    );
+  `;
   }
 
   static async fetchUnique(ticket_id: string, bill_id: string) {

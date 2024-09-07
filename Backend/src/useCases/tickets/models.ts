@@ -11,17 +11,6 @@ export enum TicketStatus {
   RES = "Resolved",
 }
 
-// export class Filters {
-//   status: string[];
-//   devices: string[];
-//   dateRange: number | null;
-//   constructor(init?: Partial<Filters>) {
-//     this.status = init?.status ?? [TicketStatus.PEN];
-//     this.devices = init?.devices ?? [];
-//     this.dateRange = init?.dateRange ?? null;
-//   }
-// }
-
 export class Filters {
   readonly status: string[];
   readonly devices: string[];

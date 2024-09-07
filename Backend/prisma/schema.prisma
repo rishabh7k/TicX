@@ -36,3 +36,13 @@ model tbl_tickets {
   bill_id           String?  @db.VarChar(255) // Nullable field
   created_at        DateTime @default(now()) @db.Timestamp(0)
 }
+
+model tbl_bills {
+  billId         String   @id @map("bill_id")
+  ticketId       String   @map("ticket_id")
+  imei           String
+  billComponents Json     @map("bill_components")
+  billTotal      Decimal  @map("bill_total")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+}
