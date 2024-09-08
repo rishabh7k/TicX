@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import BillsService from "./service.js";
-import { BillDto } from "./models.js";
+import { Bill, BillDto } from "./models.js";
 
 const billsRouter = express.Router();
 
@@ -17,8 +17,10 @@ billsRouter.post("/add", async (req: Request, res: Response) => {
 billsRouter.post(
   "/fetch/:ticket_id/:bill_id",
   async (req: Request, res: Response) => {
-    const { ticket_id, bill_id } = req.params;
     try {
+      const { ticket_id, bill_id } = req.params;
+      const bill = await BillsService.fetchUnique(ticket_id, bill_id);
+      res.status(200).json(bill);
     } catch (error) {
       res
         .status(500)
@@ -26,5 +28,17 @@ billsRouter.post(
     }
   }
 );
+
+billsRouter.post("/update", async (req: Request, res: Response) => {
+  try {
+    const bill: Bill = req.body;
+    await BillsService.updateBill(bill);
+    res.status(200).json({ success: "Bill updated successfully" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "An error occurred while fetching tickets." });
+  }
+});
 
 export default billsRouter;

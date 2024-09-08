@@ -63,4 +63,15 @@ export default class TicketsSerice {
     });
     return ticket;
   }
+
+  static async updateBillId(ticket_id: string, bill_id: string) {
+    const _ = await prisma.tbl_tickets.update({
+      data: {
+        bill_id: bill_id,
+      },
+      where: {
+        ticket_id: ticket_id,
+      },
+    });
+  }
 }

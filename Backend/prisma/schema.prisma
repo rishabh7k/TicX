@@ -38,11 +38,11 @@ model tbl_tickets {
 }
 
 model tbl_bills {
-  billId         String   @id @map("bill_id")
-  ticketId       String   @map("ticket_id")
+  bill_id         String   @id @map("bill_id")
+  ticket_id       String   @map("ticket_id")
   imei           String
-  billComponents Json     @map("bill_components")
-  billTotal      Decimal  @map("bill_total")
-  createdAt      DateTime @default(now()) @map("created_at")
-  updatedAt      DateTime @updatedAt @map("updated_at")
+  bill_components Json     @map("bill_components")
+  bill_total      Decimal  @map("bill_total")
+  created_at      DateTime @default(now()) @map("created_at")
+  updated_at      DateTime @updatedAt @map("updated_at")
 }
